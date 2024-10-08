@@ -1,29 +1,47 @@
 package com.thuanht.ezbooking.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@Data
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    int id;
-    String firebase_uid;
-    String fullName;
-    String phoneNumber;
-    String email;
-    String password;
-    String dob;
-    String avatarUrl;
-    String createdAt;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long user_id;
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT ''")
+    private String firebase_uid = "";
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT ''")
+    private String fullName = "";
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT ''")
+    private String phoneNumber = "";
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT ''")
+    private String email = "";
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT ''")
+    private String password = "";
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT ''")
+    private String dob = "";
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT ''")
+    private String gender = "";
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT ''")
+    private String avatarUrl = "";
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT ''")
+    private LocalDateTime createdAt = LocalDateTime.now(); // or set this in a prePersist method
 }
+

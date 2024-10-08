@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /ezbooking/api
+    context-path: /ezbooking
     encoding:
       charset: UTF-8
       enabled: true
@@ -12,9 +12,20 @@ spring:
     url: "jdbc:mysql://svr-freehost.vinahost.vn:3306/cqfzvzkv_ezbooking?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
     username: cqfzvzkv_thuanht
     password: thuan2k3yg
+
+#  datasource:
+#    url: "jdbc:mysql://localhost:3306/ezbooking?allowPublicKeyRetrieval=true&serverTimezone=UTC"
+#    username: root
+#    password: root
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+
 jwt:
   signerKey: "b15cc2a6a69c57e73b62faad7a59d3f70a32a3f17185ab6c7a499208ff9aaea9"
